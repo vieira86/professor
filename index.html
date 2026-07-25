@@ -221,6 +221,22 @@
   .tag-book{ background: rgba(124,92,255,0.15); color: #b7a8ff; }
   .tag-tool{ background: rgba(79,140,255,0.15); color: #9cc0ff; }
   .tag-edu{ background: rgba(34,211,199,0.15); color: #7fe9de; }
+  .tag-course{ background: rgba(255,177,79,0.15); color: #ffcf8a; }
+  .tag-extensao{ background: rgba(251, 141, 6, 0.15); color: #ffcf8a; }
+  
+
+  /* Disciplinas */
+  .course-card.placeholder{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color: var(--muted);
+    border-style: dashed;
+    opacity: 0.6;
+    min-height: 180px;
+    font-size: 0.9rem;
+  }
   .project-card h3{ font-size: 1.25rem; margin-bottom: 10px; }
   .project-card p{ color: var(--muted); font-size: 0.92rem; margin-bottom: 22px; min-height: 66px; }
   .project-link{
@@ -312,6 +328,7 @@
   <nav>
     <a href="#sobre">Sobre</a>
     <a href="#projetos">Projetos</a>
+    <a href="#disciplinas">Disciplinas</a>
     <a href="#publicacoes">Publicações</a>
     <a href="#contato">Contato</a>
   </nav>
@@ -383,6 +400,35 @@
       <p>Plataforma de revisão para o ENADE voltada a estudantes de Licenciatura em Química.</p>
       <span class="project-link">Acessar site →</span>
     </a>
+    <a class="project-card" href="https://vieira86.github.io/recicla_ai/" target="_blank" rel="noopener">
+      <span class="tag tag-extensao">Extensão</span>
+      <h3>RECICLA AÍ </h3>
+      <h4>(DIVULGAÇÃO DO PROJETO DA PROFA. DRA. JOCI NEUBY)</h4>
+      <p>Lindo projeto de Extensão realizado pela profa. Dr. Joci Neuby.</p>
+      <span class="project-link">Acessar site →</span>
+    </a>
+  </div>
+</section>
+
+<section id="disciplinas">
+  <div class="section-head">
+    <span class="eyebrow">Disciplinas</span>
+    <h2>Materiais de apoio às disciplinas</h2>
+    <p>Plataformas de estudo com flashcards, quizzes e vídeo-aulas para os estudantes de Licenciatura em Química do IFRO.</p>
+  </div>
+  <div class="projects-grid">
+    <a class="project-card" href="https://vieira86.github.io/organicaIII/" target="_blank" rel="noopener">
+      <span class="tag tag-course">Disciplina</span>
+      <h3>Química Orgânica II/III</h3>
+      <p>Plataforma de apoio com flashcards, quizzes e vídeo-aulas cobrindo condensações, reações de aminas, heterocíclicos e as principais técnicas espectroscópicas de elucidação estrutural.</p>
+      <span class="project-link">Acessar disciplina →</span>
+    </a>
+    <div class="project-card course-card placeholder">
+      Em breve: nova disciplina
+    </div>
+    <div class="project-card course-card placeholder">
+      Em breve: nova disciplina
+    </div>
   </div>
 </section>
 
