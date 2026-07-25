@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Rafael Vieira — Professor & Pesquisador</title>
+<meta name="description" content="Página profissional do Prof. Dr. Rafael Vieira — Química Orgânica, Quimioinformática, Aprendizado de Máquina e Ensino de Química.">
+<style>
+  :root{
+    --bg: #05070d;
+    --bg-alt: #0b0f1a;
+    --card: #10141f;
+    --card-border: rgba(255,255,255,0.08);
+    --text: #eef1f7;
+    --muted: #9aa4b8;
+    --accent: #4f8cff;
+    --accent2: #7c5cff;
+    --accent3: #22d3c7;
+    --glow: rgba(79,140,255,0.35);
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+
+  /* Background decoration */
+  .bg-glow{
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(600px circle at 15% 10%, var(--glow), transparent 60%),
+      radial-gradient(500px circle at 85% 30%, rgba(124,92,255,0.25), transparent 60%),
+      radial-gradient(700px circle at 50% 90%, rgba(34,211,199,0.15), transparent 60%);
+  }
+
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 6%;
+    background: rgba(5,7,13,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .logo{
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 1.05rem;
+  }
+  .logo span{ color: var(--accent); }
+  nav a{
+    margin-left: 28px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    transition: color .2s ease;
+  }
+  nav a:hover{ color: var(--text); }
+  @media (max-width: 640px){
+    nav{ display:none; }
+  }
+
+  .hero{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 100px 6% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-text{ flex: 1 1 420px; max-width: 560px; }
+  .eyebrow{
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent3);
+    border: 1px solid rgba(34,211,199,0.35);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+  }
+  .hero-text h1{
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .hero-text h1 .grad{
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-text p{
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    max-width: 500px;
+  }
+  .cta-row{ display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(79,140,255,0.35);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(79,140,255,0.5); }
+  .btn-ghost{
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    background: rgba(255,255,255,0.02);
+  }
+  .btn-ghost:hover{ background: rgba(255,255,255,0.06); }
+
+  .hero-photo{
+    flex: 0 0 auto;
+    position: relative;
+    width: 220px;
+    height: 220px;
+  }
+  .hero-photo::before{
+    content:"";
+    position:absolute;
+    inset: -14px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
+    filter: blur(2px);
+    opacity: 0.7;
+    animation: spin 8s linear infinite;
+  }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+  .hero-photo img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg);
+  }
+
+  section{ padding: 70px 6%; max-width: 1200px; margin: 0 auto; }
+  .section-head{ text-align:center; max-width: 640px; margin: 0 auto 48px; }
+  .section-head .eyebrow{ margin-bottom: 14px; }
+  .section-head h2{ font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 800; margin-bottom: 12px; }
+  .section-head p{ color: var(--muted); }
+
+  /* About */
+  .about-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 800px){ .about-grid{ grid-template-columns: 1fr; } }
+  .about-card{
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .about-card .icon{ font-size: 1.6rem; margin-bottom: 14px; }
+  .about-card h3{ font-size: 1.05rem; margin-bottom: 8px; }
+  .about-card p{ color: var(--muted); font-size: 0.92rem; }
+
+  /* Projects */
+  .projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 26px;
+  }
+  .project-card{
+    position: relative;
+    background: linear-gradient(180deg, var(--card), var(--bg-alt));
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 30px;
+    overflow: hidden;
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  .project-card:hover{ transform: translateY(-6px); border-color: rgba(79,140,255,0.4); }
+  .project-card::after{
+    content:"";
+    position:absolute;
+    top:-40%; right:-30%;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, var(--glow), transparent 70%);
+    opacity: 0.5;
+    pointer-events:none;
+  }
+  .tag{
+    display:inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .tag-book{ background: rgba(124,92,255,0.15); color: #b7a8ff; }
+  .tag-tool{ background: rgba(79,140,255,0.15); color: #9cc0ff; }
+  .tag-edu{ background: rgba(34,211,199,0.15); color: #7fe9de; }
+  .project-card h3{ font-size: 1.25rem; margin-bottom: 10px; }
+  .project-card p{ color: var(--muted); font-size: 0.92rem; margin-bottom: 22px; min-height: 66px; }
+  .project-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent);
+    transition: gap .2s ease;
+  }
+  .project-link:hover{ gap: 10px; }
+
+  /* Publications */
+  .pub-list{ display:flex; flex-direction:column; gap: 18px; }
+  .pub-card{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 26px 28px;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .pub-card:hover{ border-color: rgba(79,140,255,0.4); transform: translateY(-3px); }
+  .pub-main{ flex: 1 1 420px; }
+  .pub-meta{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    font-size: 0.78rem;
+    color: var(--accent3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+  .pub-meta .dot{ width:3px; height:3px; border-radius:50%; background: var(--muted); }
+  .pub-main h3{ font-size: 1.08rem; margin-bottom: 8px; line-height:1.4; }
+  .pub-main p{ color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+  .pub-authors{ font-size: 0.8rem; color: var(--muted); opacity: 0.8; }
+  .pub-doi{
+    flex: 0 0 auto;
+    align-self: center;
+  }
+  .pub-doi a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    background: rgba(255,255,255,0.02);
+    transition: background .2s ease;
+    white-space: nowrap;
+  }
+  .pub-doi a:hover{ background: rgba(255,255,255,0.06); }
+
+  /* Contact */
+  .contact{
+    text-align: center;
+    background: linear-gradient(180deg, var(--card), transparent);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 60px 6%;
+  }
+  .contact h2{ font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 800; margin-bottom: 14px; }
+  .contact p{ color: var(--muted); margin-bottom: 28px; }
+  .contact-links{ display:flex; justify-content:center; gap: 16px; flex-wrap: wrap; }
+
+  footer{
+    text-align: center;
+    padding: 30px 6% 50px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<header>
+  <div class="logo">Rafael<span>Vieira</span></div>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#publicacoes">Publicações</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <span class="eyebrow">Professor & Pesquisador</span>
+    <h1>Dr. Rafael Vieira, <span class="grad">Química Orgânica, Computacional & Machine Learning</span></h1>
+    <p>Professor e pesquisador especializado em quimiometria, aprendizado de máquina e análise de produtos naturais, atuando na formação de novos pesquisadores na interseção entre química, estatística e ciência da computação.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projetos">Ver Projetos</a>
+      <a class="btn btn-ghost" href="mailto:rafael.vieira@ifro.edu.br">Entrar em Contato</a>
+      <a class="btn btn-ghost" href="https://orcid.org/0000-0001-9003-3209" target="_blank" rel="noopener">ORCID ↗</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://github.com/vieira86.png" alt="Foto do Prof. Rafael Vieira">
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="section-head">
+    <span class="eyebrow">Sobre</span>
+    <h2>Ciência, dados e ensino</h2>
+    <p>Uma trajetória dedicada a unir métodos computacionais avançados com pesquisa aplicada em química e educação.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-card">
+      <div class="icon">🧪</div>
+      <h3>Quimiometria</h3>
+      <p>Métodos estatísticos e computacionais para extração de informações químicas relevantes de dados espectroscópicos.</p>
+    </div>
+    <div class="about-card">
+      <div class="icon">🤖</div>
+      <h3>Aprendizado de Máquina</h3>
+      <p>Aplicação de técnicas de ML no reconhecimento de padrões moleculares e descoberta de compostos bioativos.</p>
+    </div>
+    <div class="about-card">
+      <div class="icon">🎓</div>
+      <h3>Formação de Pesquisadores</h3>
+      <p>Atuação no ensino de Química e no desenvolvimento de plataformas de apoio à formação de licenciados.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="section-head">
+    <span class="eyebrow">Projetos</span>
+    <h2>Explore meu trabalho</h2>
+    <p>Livros, plataformas e ferramentas desenvolvidas para pesquisa e ensino.</p>
+  </div>
+  <div class="projects-grid">
+    <a class="project-card" href="https://vieira86.github.io/livroquimioinformatica/" target="_blank" rel="noopener">
+      <span class="tag tag-book">Livro</span>
+      <h3>Aprendizado de Máquina no Reconhecimento de Padrões Moleculares</h3>
+      <p>Abordagem completa combinando quimiometria e machine learning para análise de produtos naturais, com datasets e código-fonte reproduzível.</p>
+      <span class="project-link">Acessar site →</span>
+    </a>
+    <a class="project-card" href="https://vieira86.github.io/enterdynamicdock/" target="_blank" rel="noopener">
+      <span class="tag tag-tool">Plataforma</span>
+      <h3>Dynamic Dock</h3>
+      <p>Plataforma para docking proteína-ligante e preparação de dinâmica molecular, com detecção automática de sítios ativos usando AutoDock Vina.</p>
+      <span class="project-link">Acessar site →</span>
+    </a>
+    <a class="project-card" href="https://vieira86.github.io/enadelicenciaturas/" target="_blank" rel="noopener">
+      <span class="tag tag-edu">Ensino</span>
+      <h3>ENADE Química</h3>
+      <p>Plataforma de revisão para o ENADE voltada a estudantes de Licenciatura em Química.</p>
+      <span class="project-link">Acessar site →</span>
+    </a>
+  </div>
+</section>
+
+<section id="publicacoes">
+  <div class="section-head">
+    <span class="eyebrow">Publicações</span>
+    <h2>Produção científica</h2>
+    <p>Uma seleção dos principais artigos publicados em periódicos internacionais. Perfil completo no <a href="https://orcid.org/0000-0001-9003-3209" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600;">ORCID</a>.</p>
+  </div>
+  <div class="pub-list">
+
+    <div class="pub-card">
+      <div class="pub-main">
+        <div class="pub-meta">In Silico Research in Biomedicine <span class="dot"></span> 2026</div>
+        <h3>Dynamic Dock: A platform for automated molecular docking with active site detection and ligand replacement</h3>
+        <p>Artigo que apresenta o Dynamic Dock, plataforma que automatiza o fluxo de docking molecular, detectando sítios ativos e substituindo ligantes automaticamente — a base científica por trás da ferramenta disponível no site do projeto.</p>
+        <div class="pub-authors">Rafael Vieira; Kally Alves de Sousa</div>
+      </div>
+      <div class="pub-doi"><a href="https://doi.org/10.1016/j.insi.2026.100412" target="_blank" rel="noopener">DOI ↗</a></div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-main">
+        <div class="pub-meta">Next Research <span class="dot"></span> Set/2025</div>
+        <h3>Exploring the molecular potential of natural products against COVID-19 through molecular modeling and machine learning</h3>
+        <p>Investigação computacional que combina modelagem molecular e aprendizado de máquina para identificar produtos naturais com potencial de ação contra a COVID-19.</p>
+        <div class="pub-authors">Rafael Vieira; Vitor Hugo Batista; Kally Alves de Sousa</div>
+      </div>
+      <div class="pub-doi"><a href="https://doi.org/10.1016/j.nexres.2025.100511" target="_blank" rel="noopener">DOI ↗</a></div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-main">
+        <div class="pub-meta">Expert Systems with Applications <span class="dot"></span> Ago/2024</div>
+        <h3>LUMIOS – Label using machine in organic samples – A software for dereplication, molecular docking, and combined machine and deep learning</h3>
+        <p>Apresenta o LUMIOS, software que integra dereplicação, docking molecular e algoritmos de machine e deep learning para acelerar a identificação de compostos em amostras orgânicas.</p>
+        <div class="pub-authors">Rafael Vieira; Kally Alves de Sousa; Ian Castro-Gamboa</div>
+      </div>
+      <div class="pub-doi"><a href="https://doi.org/10.1016/j.eswa.2024.123447" target="_blank" rel="noopener">DOI ↗</a></div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-main">
+        <div class="pub-meta">Expert Systems with Applications <span class="dot"></span> Dez/2023</div>
+        <h3>CHEIC: Chemical Image Classificator. An intelligent system for identification of volatiles compounds with potential for respiratory diseases using Deep Learning</h3>
+        <p>Propõe o CHEIC, sistema inteligente baseado em Deep Learning para identificar, a partir de imagens químicas, compostos voláteis com potencial terapêutico para doenças respiratórias.</p>
+        <div class="pub-authors">Rafael Vieira; Kally Alves de Sousa; Givaldo Souza da Silva; Dulce Helena Siqueira Silva; Ian Castro-Gamboa</div>
+      </div>
+      <div class="pub-doi"><a href="https://doi.org/10.1016/j.eswa.2023.121178" target="_blank" rel="noopener">DOI ↗</a></div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-main">
+        <div class="pub-meta">Frontiers in Natural Products <span class="dot"></span> Set/2023</div>
+        <h3>Twenty-five years of natural products research in NuBBE</h3>
+        <p>Revisão coletiva que celebra 25 anos do NuBBE, banco de dados de referência em produtos naturais, destacando sua contribuição para dereplicação e pesquisa quimiotaxonômica no Brasil.</p>
+        <div class="pub-authors">Helena Mannochio-Russo; Ana Letícia Pires dos Santos; Rafael Vieira; et al.</div>
+      </div>
+      <div class="pub-doi"><a href="https://doi.org/10.3389/fntpr.2023.1252092" target="_blank" rel="noopener">DOI ↗</a></div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-main">
+        <div class="pub-meta">Archives of Microbiology <span class="dot"></span> Ago/2021</div>
+        <h3>Induction of metabolic variability of the endophytic fungus Xylaria sp. by OSMAC approach and experimental design</h3>
+        <p>Estudo que utiliza a abordagem OSMAC combinada a planejamento experimental para ampliar a variabilidade metabólica do fungo endofítico Xylaria sp., visando a descoberta de novos metabólitos bioativos.</p>
+        <div class="pub-authors">Rafael Vieira; Kally Alves de Sousa; Afif Felix Monteiro; Luciano Silva Pinto; Ian Castro-Gamboa</div>
+      </div>
+      <div class="pub-doi"><a href="https://doi.org/10.1007/s00203-021-02283-w" target="_blank" rel="noopener">DOI ↗</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contato">
+  <div class="contact">
+    <h2>Vamos conversar</h2>
+    <p>Para colaborações acadêmicas, dúvidas sobre os projetos ou oportunidades de pesquisa.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:rafael.vieira@ifro.edu.br">rafael.vieira@ifro.edu.br</a>
+      <a class="btn btn-ghost" href="https://github.com/vieira86" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="https://orcid.org/0000-0001-9003-3209" target="_blank" rel="noopener">ORCID</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Dr. Rafael Vieira. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>
