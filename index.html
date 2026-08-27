@@ -254,6 +254,9 @@
     transition: gap .2s ease;
   }
   .project-link:hover{ gap: 10px; }
+  .project-links{ display:flex; flex-wrap:wrap; align-items:center; gap: 18px; margin-top: 4px; }
+  .project-link.secondary{ color: var(--muted); font-weight: 600; }
+  .project-link.secondary:hover{ color: var(--accent); }
 
   /* Publications */
   .pub-list{ display:flex; flex-direction:column; gap: 18px; }
@@ -335,6 +338,7 @@
     <a href="#projetos">Projetos</a>
     <a href="#disciplinas">Disciplinas</a>
     <a href="#publicacoes">Publicações</a>
+    <a href="#registros">Registros</a>
     <a href="#contato">Contato</a>
   </nav>
 </header>
@@ -393,12 +397,24 @@
       <p>Abordagem completa combinando quimiometria e machine learning para análise de produtos naturais, com datasets e código-fonte reproduzível.</p>
       <span class="project-link">Acessar site →</span>
     </a>
-    <a class="project-card" href="http://dynamicdock.rafaelvieira.org/" target="_blank" rel="noopener">
+    <div class="project-card">
       <span class="tag tag-tool">Plataforma</span>
       <h3>Dynamic Dock</h3>
       <p>Plataforma para docking proteína-ligante e preparação de dinâmica molecular, com detecção automática de sítios ativos usando AutoDock Vina.</p>
-      <span class="project-link">Acessar site →</span>
-    </a>
+      <div class="project-links">
+        <a class="project-link" href="http://dynamicdock.rafaelvieira.org/" target="_blank" rel="noopener">Acessar site →</a>
+        <a class="project-link secondary" href="arquivos/certificado_dynamic.pdf" target="_blank" rel="noopener">Certificado de Registro ↗</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="tag tag-tool">Plataforma</span>
+      <h3>PREDACTORS</h3>
+      <p>Plataforma que prediz a atividade biológica de moléculas orgânicas a partir do SMILES, usando Machine Learning treinado com dados de docking molecular.</p>
+      <div class="project-links">
+        <a class="project-link" href="http://predactors.rafaelvieira.org/" target="_blank" rel="noopener">Acessar site →</a>
+        <a class="project-link secondary" href="arquivos/certificado_predactors.pdf" target="_blank" rel="noopener">Certificado de Registro ↗</a>
+      </div>
+    </div>
     <a class="project-card" href="http://arbomol.rafaelvieira.org/" target="_blank" rel="noopener">
       <span class="tag tag-tool">Plataforma</span>
       <h3>ArboMol</h3>
@@ -541,6 +557,37 @@
         <div class="pub-authors">Rafael Vieira; Kally Alves de Sousa; Afif Felix Monteiro; Luciano Silva Pinto; Ian Castro-Gamboa</div>
       </div>
       <div class="pub-doi"><a href="https://doi.org/10.1007/s00203-021-02283-w" target="_blank" rel="noopener">DOI ↗</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="registros">
+  <div class="section-head">
+    <span class="eyebrow">Registros</span>
+    <h2>Registro de Programa de Computador</h2>
+    <p>Softwares registrados junto ao Instituto Nacional da Propriedade Industrial (INPI), sob titularidade do Instituto Federal de Rondônia.</p>
+  </div>
+  <div class="pub-list">
+
+    <div class="pub-card">
+      <div class="pub-main">
+        <div class="pub-meta">INPI <span class="dot"></span> Processo BR512026006804-5 <span class="dot"></span> Publicado em 12/03/2026</div>
+        <h3>Dynamic Dock — A Platform for Automated Molecular Docking with Active Site Detection</h3>
+        <p>Certificado de Registro de Programa de Computador, válido por 50 anos, sob titularidade do Instituto Federal de Rondônia.</p>
+        <div class="pub-authors">Rafael Vieira; Kally Alves de Sousa; Vitor Hugo Batista</div>
+      </div>
+      <div class="pub-doi"><a href="arquivos/certificado_dynamic.pdf" target="_blank" rel="noopener">Certificado (PDF) ↗</a></div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-main">
+        <div class="pub-meta">INPI <span class="dot"></span> Processo BR512026006803-7 <span class="dot"></span> Publicado em 12/06/2025</div>
+        <h3>PREDACTORS — Predicting Activity in Organic Samples</h3>
+        <p>Certificado de Registro de Programa de Computador, válido por 50 anos, sob titularidade do Instituto Federal de Rondônia.</p>
+        <div class="pub-authors">Rafael Vieira; Kally Alves de Sousa; Vitor Hugo Batista</div>
+      </div>
+      <div class="pub-doi"><a href="arquivos/certificado_predactors.pdf" target="_blank" rel="noopener">Certificado (PDF) ↗</a></div>
     </div>
 
   </div>
